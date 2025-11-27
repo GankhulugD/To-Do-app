@@ -1,36 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
-
-.container {
+.toDoApp {
+  width: 100%;
+  max-width: 377px;
+  height: fit-content;
+  background-color: white;
+  margin: 60px auto 20px;
+  padding: 24px 16px;
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  box-shadow: 7px 7px 14px #cacaca, -7px -7px 14px #f6f6f6;
+}
+.header {
   display: flex;
   justify-content: center;
-  align-items: center;
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  margin-bottom: 20px;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
-.card {
-  width: 350px;
-  height: 400px;
-  border: 1px solid black;
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+input {
+  height: 40px;
+  width: 280px;
+  border: solid 1px;
   border-radius: 6px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  border-color: rgb(198, 198, 198);
+  padding: 0 16px;
 }
-
-.task-input {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-}
-
-.background {
-  background-color: green;
-}
-.flex {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+.add {
+  background-color: #3c82f6;
+  border: none;
+  border-radius: 6px;
+  width: 59px;
+  height: 40px;
+  color: white;
+  font-size: 14px;
 }
