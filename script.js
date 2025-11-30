@@ -2,13 +2,13 @@
 const inputBox = document.getElementById("input-box");
 const addBtn = document.getElementById("add");
 const taskList = document.getElementById("list-container");
-const deleteAll = document.getElementById("deleteAll");
-// const deleteBtn = document.getElementById("deleteButton");
+// const deleteAll = document.getElementById("deleteAll");
+
 let i = 0;
 //Event listeners
 addBtn.addEventListener("click", addTask);
-deleteAll.addEventListener("click", deleteAlll);
-// deleteBtn.addEventListener("click", deleteTask);
+// deleteAll.addEventListener("click", deleteAlll);
+taskList.addEventListener("click", deleteTask);
 
 //Functions
 function addTask() {
@@ -23,27 +23,29 @@ function addTask() {
               <p>${inputBox.value}</p>
               <button id="deleteButton" class="deleteButton">delete</button>`;
     taskList.appendChild(li);
-    const deleteBtn = document.getElementById("deleteButton");
-    deleteBtn.addEventListener("click", deleteTask);
+    // const deleteBtn = document.getElementById("deleteButton");
+    // deleteBtn.addEventListener("click", deleteTask);
     inputBox.value = "";
     i++;
     console.log(i);
   }
 }
 
-function deleteTask() {
-  const deleteElement = document.getElementById("li");
-  deleteElement.remove();
-  i--;
-  console.log(i);
-}
-
-function deleteAlll() {
-  const deleteAll = document.getElementsByClassName("li");
-
-  for (j = 1; j < i; j++) {
-    deleteAll.remove();
+function deleteTask(e) {
+  if (e.target.classList.contains("deleteButton")) {
+    const listItem = e.target.parentElement;
+    listItem.remove();
     i--;
     console.log(i);
   }
 }
+
+// function deleteAlll() {
+//   const deleteAll = document.getElementsByClassName("li");
+
+//   for (j = 1; j < i; j++) {
+//     deleteAll.remove();
+//     i--;
+//     console.log(i);
+//   }
+// }
