@@ -72,30 +72,6 @@
 .done {
   text-decoration: line-through;
 }
-/* .active {
-  height: 32px;
-  width: 60px;
-  background-color: #f3f4f6;
-  border: none;
-  border-radius: 6px;
-  font-size: 12px;
-}
-.active.active {
-  background-color: #3c82f6;
-  color: white;
-}
-.completed {
-  height: 32px;
-  width: 87px;
-  background-color: #f3f4f6;
-  border: none;
-  border-radius: 6px;
-  font-size: 12px;
-}
-.completed.active {
-  background-color: #3c82f6;
-  color: white;
-} */
 .list-container {
   margin-top: 20px;
 }
