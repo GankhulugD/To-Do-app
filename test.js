@@ -4,7 +4,9 @@ const taskList = document.getElementById("task-list");
 
 let tasks = [];
 
-const addTask = () => {
+function addTask() {
+  console.log(e.target.parentElement, "e.target");
+
   const task = taskInput.value.trim();
   const taskObj = {
     task,
@@ -14,8 +16,8 @@ const addTask = () => {
   tasks.push(taskObj);
   taskInput.value = "";
   render();
-};
-
+}
+() => {};
 const defaultMessage = () => {
   if (tasks.length === 0) {
     taskList.innerHTML = `<div>
@@ -36,7 +38,6 @@ const render = () => {
   });
   console.log(tasks);
 };
-
 const deleteTask = (id) => {
   tasks = tasks.filter((task) => task.id !== id);
   console.log(tasks);
