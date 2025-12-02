@@ -99,6 +99,9 @@ li {
 li:hover {
   background-color: #f3f4f6;
 }
+li:has(.check-box:checked) .line {
+  text-decoration: line-through;
+}
 #checkbox {
   cursor: pointer;
   accent-color: #3c82f6;

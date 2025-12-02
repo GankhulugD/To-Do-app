@@ -35,7 +35,7 @@ function addTask() {
     li.id = "li";
     li.classList.add("li");
     li.innerHTML = `<input id="checkbox" class="check-box" type="checkbox" data-task-id="${i}"/>
-              <p>${inputBox.value}</p>
+              <p class="line">${inputBox.value}</p>
               <button  class="deleteButton" id="${i}">delete</button>`;
     taskList.appendChild(li);
     console.log(i);
@@ -103,10 +103,15 @@ function deleteAndToggle(e) {
 
     // 2. isTaskCompleted функц рүү дамжуулна
     isTaskCompleted(selectedId);
-
     // checked-ийг reverse
     e.target.parentElement.classList.toggle("checked");
 
+    const taskTextElement = e.target.parentElement.querySelector("p");
+    if (taskTextElement) {
+      taskTextElement.style.overflowWrap = "break-word";
+    }
+    // checked-ийг reverse
+    e.target.parentElement.classList.toggle("checked");
     taskCount();
   }
 }
@@ -154,15 +159,11 @@ function deleteAlll() {
 
 function allClick() {
   activeBtn.value = 0;
+  activeBtn.classList.remove("active");
   completedBtn.value = 0;
+  completedBtn.classList.remove("active");
   allBtn.value = 1;
-
-  console.log(allBtn.value);
-}
-function activeClick() {
-  allBtn.value = 0;
-  completedBtn.value = 0;
-  activeBtn.value = 1;
+  allBtn.classList.add("active");
 
   const completedTasks = tasks.filter((task) => task.isDone === true);
   completedTasks.forEach((task) => {
@@ -171,16 +172,84 @@ function activeClick() {
     );
     if (checkboxToDelete) {
       const none = checkboxToDelete.parentElement;
+      none.style.display = "flex";
+    }
+  });
+  const completedTasks2 = tasks.filter((task) => task.isDone === false);
+  completedTasks2.forEach((task) => {
+    const checkboxToDelete = taskList.querySelector(
+      `[data-task-id="${task.id}"]`
+    );
+    if (checkboxToDelete) {
+      const none = checkboxToDelete.parentElement;
+      none.style.display = "flex";
+    }
+  });
+}
+function activeClick() {
+  allBtn.value = 0;
+  allBtn.classList.remove("active");
+  completedBtn.value = 0;
+  completedBtn.classList.remove("active");
+  activeBtn.value = 1;
+  activeBtn.classList.add("active");
+  const completedTasks = tasks.filter((task) => task.isDone === true);
+  completedTasks.forEach((task) => {
+    const checkboxToDelete = taskList.querySelector(
+      `[data-task-id="${task.id}"]`
+    );
+    if (checkboxToDelete) {
+      const none = checkboxToDelete.parentElement;
+      none.style.display = "flex";
+    }
+  });
+  const completedTasks2 = tasks.filter((task) => task.isDone === false);
+  completedTasks2.forEach((task) => {
+    const checkboxToDelete = taskList.querySelector(
+      `[data-task-id="${task.id}"]`
+    );
+    if (checkboxToDelete) {
+      const none = checkboxToDelete.parentElement;
+      none.style.display = "flex";
+    }
+  });
+  const completedTasks3 = tasks.filter((task) => task.isDone === true);
+  completedTasks3.forEach((task) => {
+    const checkboxToDelete = taskList.querySelector(
+      `[data-task-id="${task.id}"]`
+    );
+    if (checkboxToDelete) {
+      const none = checkboxToDelete.parentElement;
       none.style.display = "none";
     }
   });
-
-  console.log(activeBtn.value);
 }
 function completedClick() {
   allBtn.value = 0;
+  allBtn.classList.remove("active");
   activeBtn.value = 0;
+  activeBtn.classList.remove("active");
   completedBtn.value = 1;
+  completedBtn.classList.add("active");
 
-  console.log(completedBtn.value);
+  const completedTasks = tasks.filter((task) => task.isDone === true);
+  completedTasks.forEach((task) => {
+    const checkboxToDelete = taskList.querySelector(
+      `[data-task-id="${task.id}"]`
+    );
+    if (checkboxToDelete) {
+      const none = checkboxToDelete.parentElement;
+      none.style.display = "flex";
+    }
+  });
+  const completedTasks2 = tasks.filter((task) => task.isDone === false);
+  completedTasks2.forEach((task) => {
+    const checkboxToDelete = taskList.querySelector(
+      `[data-task-id="${task.id}"]`
+    );
+    if (checkboxToDelete) {
+      const none = checkboxToDelete.parentElement;
+      none.style.display = "none";
+    }
+  });
 }
