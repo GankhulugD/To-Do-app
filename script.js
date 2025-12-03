@@ -39,7 +39,10 @@ function addTask() {
               <button  class="deleteButton" id="${i}">delete</button>`;
     taskList.appendChild(li);
     console.log(i);
-    let task = { id: i, value: inputBox.value, isDone: false };
+
+    let task;
+    task = { id: i, value: inputBox.value, isDone: false };
+
     tasks.push(task);
     console.log(tasks);
     inputBox.value = "";
@@ -64,8 +67,10 @@ function deleteTask(e) {
           return task;
         }
       });
+      // tasks = tasks.filter((task) => task.isDone === false);
+      // i = tasks.length;
 
-      i--;
+      // i--;
       console.log(i);
       console.log(tasks);
     }
@@ -74,6 +79,7 @@ function deleteTask(e) {
     document.getElementById("noTask").style.display = "block";
     document.getElementById("count").style.display = "none";
   }
+  taskCount();
 }
 function isTaskCompleted(taskId) {
   for (let i = 0; i < tasks.length; i++) {
@@ -104,7 +110,7 @@ function deleteAndToggle(e) {
     // 2. isTaskCompleted функц рүү дамжуулна
     isTaskCompleted(selectedId);
     // checked-ийг reverse
-    e.target.parentElement.classList.toggle("checked");
+    // e.target.parentElement.classList.toggle("checked");
 
     const taskTextElement = e.target.parentElement.querySelector("p");
     if (taskTextElement) {
@@ -146,7 +152,7 @@ function deleteAlll() {
   // isDone нь false байгаа Task-уудаар шинэ массив үүсгэнэ.
   tasks = tasks.filter((task) => task.isDone === false);
 
-  i = tasks.length;
+  // i = tasks.length;
   if (i < 1) {
     document.getElementById("noTask").style.display = "block";
     document.getElementById("count").style.display = "none";
