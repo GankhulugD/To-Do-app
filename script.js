@@ -86,7 +86,7 @@ function isTaskCompleted(taskId) {
     const task = tasks[i];
 
     if (task.id === taskId) {
-      // isDone төлөвийг одоогийн утгаас нь эсрэг утга руу сэлгэнэ (true -> false, false -> true)
+      // (true -> false, false -> true)
       task.isDone = !task.isDone;
 
       console.log(tasks);
@@ -107,16 +107,14 @@ function deleteAndToggle(e) {
   if (e.target.classList.contains("check-box")) {
     const selectedId = parseInt(e.target.getAttribute("data-task-id"));
 
-    // 2. isTaskCompleted функц рүү дамжуулна
     isTaskCompleted(selectedId);
     // checked-ийг reverse
-    // e.target.parentElement.classList.toggle("checked");
 
     const taskTextElement = e.target.parentElement.querySelector("p");
     if (taskTextElement) {
       taskTextElement.style.overflowWrap = "break-word";
     }
-    // checked-ийг reverse
+
     e.target.parentElement.classList.toggle("checked");
     taskCount();
   }
@@ -134,10 +132,9 @@ function taskCount() {
 }
 
 function deleteAlll() {
-  // 1. Устгах ёстой (isDone: true) байгаа Task-уудыг олох
   const completedTasks = tasks.filter((task) => task.isDone === true);
 
-  // 2. DOM элементүүдийг устгах
+  // 2. DOM устгах
   completedTasks.forEach((task) => {
     const checkboxToDelete = taskList.querySelector(
       `[data-task-id="${task.id}"]`
@@ -148,8 +145,6 @@ function deleteAlll() {
     }
   });
 
-  // 3. tasks массив доторх Object-уудыг устгах
-  // isDone нь false байгаа Task-уудаар шинэ массив үүсгэнэ.
   tasks = tasks.filter((task) => task.isDone === false);
 
   // i = tasks.length;
